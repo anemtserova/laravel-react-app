@@ -1,0 +1,10 @@
+.box-style {
+    width: 9rem;
+    height: 9rem;
+    border: solid 8px orangered;
+    border-radius: 10px;
+}
+
+.link-color {
+    color: gray;
+}
