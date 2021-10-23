@@ -3,9 +3,10 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Form from "./Form";
 import LinkBoxes from "./LinkBoxes";
+import Box from "./Box";
 import "../../css/app.css";
 
-function Example() {
+const Example = () => {
     return (
         <Router>
             <Switch>
@@ -14,7 +15,7 @@ function Example() {
             </Switch>
         </Router>
     );
-}
+};
 
 export default Example;
 

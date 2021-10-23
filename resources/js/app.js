@@ -15,3 +15,4 @@ require("./bootstrap");
 require("./components/Example");
 require("./components/Form");
 require("./components/LinkBoxes");
+require("./components/Box");

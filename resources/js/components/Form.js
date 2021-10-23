@@ -23,8 +23,8 @@ const Form = () => {
 
         if (res.data.status === 200) {
             console.log(res.data.message);
-            setFormInput(formState);
         }
+        setFormInput(formState);
     };
 
     return (
@@ -70,7 +70,7 @@ const Form = () => {
                 </label>
                 <select
                     name="color"
-                    className="form-select highlight"
+                    className="form-select form-control highlight"
                     //value={this.state.type}
                     onChange={handleInput}
                 >

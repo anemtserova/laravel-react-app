@@ -22,7 +22,7 @@
         </style>
     </head>
     <body class="antialiased">
-        <div id="example"></div>
+        <div class="d-flex" id="example"></div>
         <script src="{{asset('js/app.js')}}"></script>
     </body>
 </html>
