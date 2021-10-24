@@ -11,7 +11,7 @@ const Example = () => {
         <Router>
             <Switch>
                 <Route exact path="/" component={LinkBoxes} />
-                <Route path="/form" component={Form} />
+                <Route path="/form/:id" component={Form} />
             </Switch>
         </Router>
     );

@@ -1,30 +1,38 @@
 import React, { useState } from "react";
 //import ReactDOM from 'react-dom';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
+import PropTypes from "prop-types";
 
-const Form = () => {
-    const formState = {
+const Form = (props) => {
+    const history = useHistory();
+
+    const [formInput, setFormInput] = useState({
         title: "",
         link: "",
         color: "",
-    };
-    const [formInput, setFormInput] = useState(formState);
+        boxId: props.boxId,
+    });
+
     const handleInput = (e) => {
         setFormInput({ ...formInput, [e.target.name]: e.target.value });
+        // setFormInput({ boxId: e.target.value });
     };
 
     const saveInput = async (e) => {
+        console.log("event", e);
+        console.log("formInput", formInput);
+
         e.preventDefault();
         const res = await axios.post(
-            "http://127.0.0.1:8000/api/form",
+            `http://127.0.0.1:8000/api/form/${props.boxId}`,
             formInput
         );
 
         if (res.data.status === 200) {
             console.log(res.data.message);
+            history.push("/");
         }
-        setFormInput(formState);
     };
 
     return (
@@ -64,6 +72,21 @@ const Form = () => {
                     aria-describedby="basic-addon1"
                 />
             </div>
+            {/* <div className="input-group mb-3">
+                <label className="input-group-text " id="basic-addon2">
+                    Box ID
+                </label>
+                <input
+                    type="text"
+                    //onChange={handleInput}
+                    value={props.id}
+                    name="boxId"
+                    className="form-control"
+                    placeholder="Enter Box Id (from 1 to 9)"
+                    aria-label="ID"
+                    aria-describedby="basic-addon1"
+                />
+            </div> */}
             <div className="input-group mb-3">
                 <label className="input-group-text " id="basic-addon3">
                     Color
@@ -72,11 +95,10 @@ const Form = () => {
                     name="color"
                     className="form-select form-control highlight"
                     //value={this.state.type}
+                    defaultValue={"Pick a color"}
                     onChange={handleInput}
                 >
-                    <option selected value="Pick a color">
-                        Pick a color
-                    </option>
+                    <option value="Pick a color">Pick a color</option>
                     <option value="Red">Red</option>
                     <option value="Blue">Blue</option>
                     <option value="Green">Green</option>
@@ -118,3 +140,7 @@ export default Form;
 if (document.getElementById("form")) {
     ReactDOM.render(<Form />, document.getElementById("form"));
 }
+
+Form.propTypes = {
+    id: PropTypes.number,
+};

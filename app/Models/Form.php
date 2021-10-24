@@ -12,6 +12,7 @@ class Form extends Model
     protected $fillable = [
         'title',
         'link',
-        'color'
+        'color',
+        'boxId'
     ];
 }

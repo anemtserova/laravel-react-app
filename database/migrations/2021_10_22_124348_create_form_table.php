@@ -18,10 +18,16 @@ class CreateFormTable extends Migration
             $table->string('title');
             $table->string('link');
             $table->string('color');
-
+            $table->integer('boxId');
             $table->timestamps();
         });
+
+        // Schema::table('form', function (Blueprint $table) {
+        //     $table->integer('boxId');
+        // }); 
     }
+
+
 
     /**
      * Reverse the migrations.

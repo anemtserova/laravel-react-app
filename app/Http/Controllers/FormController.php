@@ -38,6 +38,7 @@ class FormController extends Controller
         $form->title = $request->input('title');
         $form->link = $request->input('link');
         $form->color = $request->input('color');
+        $form->boxId = $request->input('boxId');
         $form->save();
 
         return response()->json([
