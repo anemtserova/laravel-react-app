@@ -2210,7 +2210,7 @@ var Box = function Box(props) {
           })
         })
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-        className: "d-flex flex-column justify-content-center align-items-center box-style  p-3 ",
+        className: "d-flex flex-column justify-content-center align-items-center box-style-".concat(props.id, "  p-3 "),
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: "d-flex justify-content-center align-items-center   m-0",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_external_link__WEBPACK_IMPORTED_MODULE_1__.ExternalLink, {
@@ -2435,8 +2435,8 @@ var EditForm = function EditForm(props) {
           value: "Blue Sapphire",
           children: "Blue Sapphire"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-          value: "Rich Black GORGA",
-          children: "Rich Black GORGA"
+          value: "Rich Black",
+          children: "Rich Black"
         })]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -2707,8 +2707,8 @@ var Form = function Form(props) {
           value: "Blue Sapphire",
           children: "Blue Sapphire"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-          value: "Rich Black GORGA",
-          children: "Rich Black GORGA"
+          value: "Rich Black",
+          children: "Rich Black"
         })]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -7316,7 +7316,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".body {\r\n    color: rgb(0, 18, 25);\r\n}\r\n\r\n.headings {\r\n    font-weight: bold;\r\n}\r\n\r\n.box-style {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px orangered;\r\n    border-radius: 10px;\r\n}\r\n.box-style-1 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(174, 32, 18);\r\n    border-radius: 10px;\r\n}\r\n.box-style-2 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(187, 62, 3);\r\n    border-radius: 10px;\r\n}\r\n.box-style-3 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(202, 103, 2);\r\n    border-radius: 10px;\r\n}\r\n.box-style-4 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(238, 155, 0);\r\n    border-radius: 10px;\r\n}\r\n.box-style-5 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(200, 224, 135);\r\n    border-radius: 10px;\r\n}\r\n.box-style-6 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(148, 210, 189);\r\n    border-radius: 10px;\r\n}\r\n.box-style-7 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(10, 147, 150);\r\n    border-radius: 10px;\r\n}\r\n.box-style-8 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(0, 95, 115);\r\n    border-radius: 10px;\r\n}\r\n.box-style-9 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(0, 18, 25);\r\n    border-radius: 10px;\r\n}\r\n\r\n.btn-style-sm {\r\n    border: solid 2px orangered;\r\n    width: 3.5rem;\r\n    height: 1.5rem;\r\n    font-size: 0.7rem;\r\n    font-weight: bold;\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\n\r\n.link-color {\r\n    color: rgb(0, 18, 25);\r\n}\r\n\r\n.label-style {\r\n    background: rgb(200, 224, 135);\r\n    font-weight: bold;\r\n}\r\n\r\n.btn-back {\r\n    background: rgb(200, 224, 135);\r\n    font-weight: bold;\r\n}\r\n\r\n.btn-action {\r\n    background: orangered;\r\n    font-weight: bold;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".body {\r\n    color: rgb(0, 18, 25);\r\n}\r\n\r\n.headings {\r\n    font-weight: bold;\r\n}\r\n\r\n.box-style {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px orangered;\r\n    border-radius: 10px;\r\n}\r\n.box-style-1 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(174, 32, 18);\r\n    border-radius: 10px;\r\n}\r\n.box-style-2 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(187, 62, 3);\r\n    border-radius: 10px;\r\n}\r\n.box-style-3 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(202, 103, 2);\r\n    border-radius: 10px;\r\n}\r\n.box-style-4 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(238, 155, 0);\r\n    border-radius: 10px;\r\n}\r\n.box-style-5 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(200, 224, 135);\r\n    border-radius: 10px;\r\n}\r\n.box-style-6 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(148, 210, 189);\r\n    border-radius: 10px;\r\n}\r\n.box-style-7 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(10, 147, 150);\r\n    border-radius: 10px;\r\n}\r\n.box-style-8 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(0, 95, 115);\r\n    border-radius: 10px;\r\n}\r\n.box-style-9 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(3, 54, 58);\r\n    border-radius: 10px;\r\n}\r\n\r\n.btn-style-sm {\r\n    border: solid 2px orangered;\r\n    width: 3.5rem;\r\n    height: 1.5rem;\r\n    font-size: 0.7rem;\r\n    font-weight: bold;\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\n\r\n.link-color {\r\n    color: rgb(0, 18, 25);\r\n}\r\n\r\n.label-style {\r\n    background: rgb(200, 224, 135);\r\n    font-weight: bold;\r\n}\r\n\r\n.btn-back {\r\n    background: rgb(200, 224, 135);\r\n    font-weight: bold;\r\n}\r\n\r\n.btn-action {\r\n    background: orangered;\r\n    font-weight: bold;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -28,7 +28,7 @@ const Box = (props) => {
                     </div>
                 ) : (
                     <div
-                        className={`d-flex flex-column justify-content-center align-items-center box-style  p-3 `}
+                        className={`d-flex flex-column justify-content-center align-items-center box-style-${props.id}  p-3 `}
                     >
                         <div className="d-flex justify-content-center align-items-center   m-0">
                             <ExternalLink

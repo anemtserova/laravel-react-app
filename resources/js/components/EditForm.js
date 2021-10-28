@@ -97,7 +97,7 @@ const EditForm = (props) => {
                     <option value="Middle Blue Green">Middle Blue Green</option>
                     <option value="Viridian Green">Viridian Green</option>
                     <option value="Blue Sapphire">Blue Sapphire</option>
-                    <option value="Rich Black GORGA">Rich Black GORGA</option>
+                    <option value="Rich Black">Rich Black</option>
                 </select>
             </div>
 
