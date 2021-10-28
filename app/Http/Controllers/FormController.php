@@ -14,7 +14,13 @@ class FormController extends Controller
      */
     public function index()
     {
-        //
+        // $form_data = Form::all();
+        // return response()->json([
+        //     'status' => 200,
+        //     'form_data' => $form_data,
+
+        // ] );
+        return  Form::all();
     }
 
     /**
@@ -33,8 +39,18 @@ class FormController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    
+
+
     public function store(Request $request) {
         $form = new Form;
+
+        $request-> validate([
+            'title'=>'required',
+            'link'=>'required',
+            'color'=>'required',
+            
+        ]);
         $form->title = $request->input('title');
         $form->link = $request->input('link');
         $form->color = $request->input('color');
@@ -51,12 +67,13 @@ class FormController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $boxId
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($boxId)
     {
-        //
+        
+        return Form::find($boxId);
     }
 
     /**
@@ -77,9 +94,11 @@ class FormController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $boxId)
     {
-        //
+        $form_edit = Form::where('boxId', $boxId);
+        $form_edit->update($request->all());
+        return $form_edit->get();
     }
 
     /**
@@ -92,4 +111,25 @@ class FormController extends Controller
     {
         //
     }
+    /**
+     * 
+     *
+     * @param  int  $boxId
+     * @return \Illuminate\Http\Response
+     */
+    public static function findBoxId($boxId)
+    {
+        // $link_setup = Form::where('boxId', $boxId)->first();
+        // return response()->json([
+        //     'status' => 200,
+        //     'link_setup' => $link_setup,
+
+        // ] );
+        return Form::where('boxId', $boxId)->first();
+    }
+
+    
+
+    
+    
 }

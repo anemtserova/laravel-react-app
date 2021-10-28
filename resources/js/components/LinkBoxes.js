@@ -1,99 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 //import ReactDOM from 'react-dom';
 import { Link } from "react-router-dom";
 import Box from "./Box";
+import Form from "./Form";
+import "../../css/app.css";
 import PropTypes from "prop-types";
+import axios from "axios";
 
 const LinkBoxes = (props) => {
-    let boxes = [];
+    const linkBoxes = [];
 
-    const displayBox = () => {
-        for (let i = 0; i < 9; i++) {
-            boxes.push(<Box key={i + 1} id={i + 1} />);
+    for (let i = 0; i < 9; i++) {
+        linkBoxes.push(<Box key={i} id={i + 1} />);
+    }
+
+    useEffect(async () => {
+        try {
+            for (let i = 1; i < 10; i++) {
+                const resp = await axios.get(
+                    `http://127.0.0.1:8000/api/info/${i}`
+                );
+
+                localStorage.setItem(`box${i}`, JSON.stringify(resp.data));
+            }
+            return true;
+        } catch (err) {
+            console.error("There has been an error while loging in.", err);
         }
-        console.log("array of boxes", boxes);
-        return boxes;
-    };
+    }, []);
 
-    const handleBoxInput = () => {
-        boxes.map((el, i) => {});
-    };
     return (
         <div className="container w-50 d-flex flex-column justify-content-center align-items-center my-3">
-            <h1 className="text-center">Link Boxes</h1>
+            <h1 className="text-center headings">Link Boxes</h1>
             <div className="d-flex flex-wrap w-75 justify-content-center">
-                {displayBox()}
+                {/* {displayBox()} */}
+                {linkBoxes}
             </div>
-
-            {/* <div className="d-flex my-3 justify-content-center">
-                <div className="d-flex mx-2 justify-content-center">
-                    <div className="d-flex justify-content-center align-items-center box-style  p-3">
-                        <Link className="link-color" to={"/form"}>
-                            <i className="far fa-plus-square fa-6x"></i>
-                        </Link>
-                    </div>
-                </div>
-                <div className="d-flex mx-2 justify-content-center">
-                    <div className="d-flex justify-content-center align-items-center box-style  p-3">
-                        <Link to={"/form"}>
-                            <i className="far fa-plus-square fa-6x"></i>
-                        </Link>
-                    </div>
-                </div>
-                <div className="d-flex mx-2 justify-content-center">
-                    <div className="d-flex justify-content-center align-items-center box-style  p-3">
-                        <Link to={"/form"}>
-                            <i className="far fa-plus-square fa-6x"></i>
-                        </Link>
-                    </div>
-                </div>
-            </div>
-            <div className="d-flex m-3 justify-content-center">
-                <div className="d-flex mx-2 justify-content-center">
-                    <div className="d-flex justify-content-center align-items-center box-style  p-3">
-                        <Link to={"/form"}>
-                            <i className="far fa-plus-square fa-6x"></i>
-                        </Link>
-                    </div>
-                </div>
-                <div className="d-flex mx-2 justify-content-center">
-                    <div className="d-flex justify-content-center align-items-center box-style  p-3">
-                        <Link to={"/form"}>
-                            <i className="far fa-plus-square fa-6x"></i>
-                        </Link>
-                    </div>
-                </div>
-                <div className="d-flex mx-2 justify-content-center">
-                    <div className="d-flex justify-content-center align-items-center box-style  p-3">
-                        <Link to={"/form"}>
-                            <i className="far fa-plus-square fa-6x"></i>
-                        </Link>
-                    </div>
-                </div>
-            </div>
-            <div className="d-flex m-3 justify-content-center">
-                <div className="d-flex mx-2 justify-content-center">
-                    <div className="d-flex justify-content-center align-items-center box-style  p-3">
-                        <Link to={"/form"}>
-                            <i className="far fa-plus-square fa-6x"></i>
-                        </Link>
-                    </div>
-                </div>
-                <div className="d-flex mx-2 justify-content-center">
-                    <div className="d-flex justify-content-center align-items-center box-style  p-3">
-                        <Link to={"/form"}>
-                            <i className="far fa-plus-square fa-6x"></i>
-                        </Link>
-                    </div>
-                </div>
-                <div className="d-flex mx-2 justify-content-center">
-                    <div className="d-flex justify-content-center align-items-center box-style  p-3">
-                        <Link to={"/form"}>
-                            <i className="far fa-plus-square fa-6x"></i>
-                        </Link>
-                    </div>
-                </div>
-            </div> */}
         </div>
     );
 };

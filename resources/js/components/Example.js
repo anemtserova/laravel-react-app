@@ -2,16 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Form from "./Form";
+import EditForm from "./EditForm";
 import LinkBoxes from "./LinkBoxes";
-import Box from "./Box";
 import "../../css/app.css";
 
-const Example = () => {
+const Example = (props) => {
     return (
         <Router>
             <Switch>
                 <Route exact path="/" component={LinkBoxes} />
-                <Route path="/form/:id" component={Form} />
+                <Route path="/info/:id" component={Form} />
+                <Route path="/editinfo/:id" component={EditForm} />
             </Switch>
         </Router>
     );

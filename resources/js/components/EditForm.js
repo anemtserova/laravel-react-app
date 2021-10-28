@@ -1,40 +1,46 @@
-import React, { useState } from "react";
-//import ReactDOM from 'react-dom';
+import React, { useEffect, useState } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
 import PropTypes from "prop-types";
 
-const Form = (props) => {
+const EditForm = (props) => {
     const history = useHistory();
     let location = useLocation();
-
-    const [formInput, setFormInput] = useState({
-        title: "",
-        link: "",
-        color: "",
+    const [editFormInput, setEditFormInput] = useState({
+        title: location.state["title"],
+        link: location.state["link"],
+        color: location.state["color"],
         boxId: location.state["boxId"],
     });
 
+    console.log("editFORMInput in EditForm", editFormInput);
+
     const handleInput = (e) => {
-        setFormInput({ ...formInput, [e.target.name]: e.target.value });
+        setEditFormInput({ ...editFormInput, [e.target.name]: e.target.value });
     };
 
-    const saveInput = async (e) => {
+    const saveEditInput = async (e) => {
         e.preventDefault();
-        const res = await axios.post(
-            `http://127.0.0.1:8000/api/info/${formInput.boxId}`,
-            formInput
+        const editedInfoPut = await axios.put(
+            `http://127.0.0.1:8000/api/editinfo/${editFormInput.boxId}`,
+
+            editFormInput
+        );
+        const editedInfoGet = await axios.get(
+            `http://127.0.0.1:8000/api/editinfo/${editFormInput.boxId}`
         );
 
-        if (res.data.status === 200) {
-            console.log(res.data.message);
-            history.push("/");
-        }
+        localStorage.setItem(
+            `box${editFormInput.boxId}`,
+            JSON.stringify(editedInfoGet.data)
+        );
+
+        history.push("/");
     };
 
     return (
         <form className="d-flex m-auto flex-column align-items-center justify-content-center w-50 mt-5 pt-5">
-            <h1 className="my-3 headings">Set up Your Custom Link</h1>
+            <h1 className="my-3 headings">Edit Your Link Info</h1>
             <div className="input-group mb-3">
                 <label
                     className="input-group-text label-style"
@@ -46,9 +52,8 @@ const Form = (props) => {
                     onChange={handleInput}
                     type="text"
                     name="title"
-                    //value={formInput.title}
+                    value={editFormInput.title}
                     className="form-control"
-                    placeholder="Website Name"
                     aria-label="Name"
                     aria-describedby="basic-addon1"
                 />
@@ -63,10 +68,9 @@ const Form = (props) => {
                 <input
                     type="text"
                     onChange={handleInput}
-                    //value={formInput.link}
+                    value={editFormInput.link}
                     name="link"
                     className="form-control"
-                    placeholder="Website Link"
                     aria-label="Link"
                     aria-describedby="basic-addon1"
                 />
@@ -81,8 +85,7 @@ const Form = (props) => {
                 <select
                     name="color"
                     className="form-select form-control highlight"
-                    //value={this.state.type}
-                    defaultValue={"Pick a color"}
+                    defaultValue={editFormInput.color}
                     onChange={handleInput}
                 >
                     <option value="Pick a color">Pick a color</option>
@@ -100,11 +103,11 @@ const Form = (props) => {
 
             <div className="d-flex w-50">
                 <button
-                    onClick={saveInput}
+                    onClick={saveEditInput}
                     type="submit"
                     className="btn btn-action mx-2 w-50"
                 >
-                    SAVE
+                    UPDATE
                 </button>
                 <Link className="w-50" to={"/"}>
                     <button type="btn" className="btn btn-back mx-2 w-100">
@@ -116,12 +119,12 @@ const Form = (props) => {
     );
 };
 
-export default Form;
+export default EditForm;
 
-if (document.getElementById("form")) {
-    ReactDOM.render(<Form />, document.getElementById("form"));
+if (document.getElementById("edit-form")) {
+    ReactDOM.render(<EditForm />, document.getElementById("edit-form"));
 }
 
-Form.propTypes = {
+EditForm.propTypes = {
     id: PropTypes.number,
 };

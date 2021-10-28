@@ -14,5 +14,6 @@ require("./bootstrap");
 
 require("./components/Example");
 require("./components/Form");
+require("./components/EditForm");
 require("./components/LinkBoxes");
 require("./components/Box");
