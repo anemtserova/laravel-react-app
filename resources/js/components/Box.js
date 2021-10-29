@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 //import ReactDOM from 'react-dom';
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
 import { ExternalLink } from "react-external-link";
 import "../../css/app.css";
 import PropTypes from "prop-types";
@@ -9,6 +9,23 @@ import { get } from "jquery";
 
 const Box = (props) => {
     const [infoBox, setInfoBox] = useState({});
+
+    // localStorage.setItem(`box${props.id}`, JSON.stringify(getBox.data));
+
+    // setInfoBox(getBox.data);
+    //     console.log(infoBox);
+
+    // const deleteBoxData = async (id) => {
+    //     const delResp = await axios.delete(
+    //         `http://127.0.0.1:8000/api/info/${id}`
+    //     );
+    //     if (delResp === 1) {
+    //         const getBox = await axios.get(
+    //             `http://127.0.0.1:8000/api/info/${id}`
+    //         );
+    //         localStorage.setItem(`box${id}`, JSON.stringify(getBox.data));
+    //     }
+    // };
 
     return (
         <div>
@@ -43,34 +60,45 @@ const Box = (props) => {
                             </ExternalLink>
                         </div>
                         <div className="d-flex m-0 justify-content-center align-items-center">
-                            <Link
-                                // onClick={getBoxData}
-                                to={{
-                                    pathname: `/editinfo/${props.id}`,
-                                    state: {
-                                        boxId: props.id,
-                                        title: JSON.parse(
-                                            localStorage.getItem(
-                                                `box${props.id}`
-                                            )
-                                        )["title"],
-                                        link: JSON.parse(
-                                            localStorage.getItem(
-                                                `box${props.id}`
-                                            )
-                                        )["link"],
-                                        color: JSON.parse(
-                                            localStorage.getItem(
-                                                `box${props.id}`
-                                            )
-                                        )["color"],
-                                    },
-                                }}
-                                className="d-flex btn btn-style-sm justify-content-center align-items-center"
-                                type="button"
-                            >
-                                MODIFY
-                            </Link>
+                            <div className="d-flex m-0 mr-1 justify-content-center align-items-center">
+                                <Link
+                                    // onClick={getBoxData}
+                                    to={{
+                                        pathname: `/editinfo/${props.id}`,
+                                        state: {
+                                            boxId: props.id,
+                                            title: JSON.parse(
+                                                localStorage.getItem(
+                                                    `box${props.id}`
+                                                )
+                                            )["title"],
+                                            link: JSON.parse(
+                                                localStorage.getItem(
+                                                    `box${props.id}`
+                                                )
+                                            )["link"],
+                                            color: JSON.parse(
+                                                localStorage.getItem(
+                                                    `box${props.id}`
+                                                )
+                                            )["color"],
+                                        },
+                                    }}
+                                    className="d-flex btn btn-style-sm justify-content-center align-items-center uppercase"
+                                    type="button"
+                                >
+                                    modify
+                                </Link>
+                            </div>
+                            {/* <div className="d-flex m-0 justify-content-center align-items-center">
+                                <button
+                                    onClick={() => deleteBoxData(props.id)}
+                                    className="d-flex btn btn-style-sm justify-content-center align-items-center uppercase"
+                                    type="button"
+                                >
+                                    delete
+                                </button>
+                            </div> */}
                         </div>
                     </div>
                 )}

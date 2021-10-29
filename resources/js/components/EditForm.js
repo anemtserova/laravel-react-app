@@ -43,9 +43,25 @@ const EditForm = (props) => {
         // );
     };
 
+    const deleteBoxData = async () => {
+        const delResp = await axios.delete(
+            `http://127.0.0.1:8000/api/info/${location.state["boxId"]}`
+        );
+
+        const getBox = await axios.get(
+            `http://127.0.0.1:8000/api/info/${location.state["boxId"]}`
+        );
+        localStorage.setItem(
+            `box${location.state["boxId"]}`,
+            JSON.stringify(getBox.data)
+        );
+
+        history.push("/");
+    };
+
     return (
         <form className="d-flex m-auto flex-column align-items-center justify-content-center w-50 mt-5 pt-5">
-            <h1 className="my-3 headings">Edit Your Link Info</h1>
+            <h1 className="my-3 headings uppercase">Edit Your Link Info</h1>
             <div className="input-group mb-3">
                 <label
                     className="input-group-text label-style"
@@ -106,17 +122,27 @@ const EditForm = (props) => {
                 </select>
             </div>
 
-            <div className="d-flex w-50">
+            <div className="d-flex w-50 justify-content-center">
                 <button
                     onClick={saveEditInput}
                     type="submit"
-                    className="btn btn-action mx-2 w-50"
+                    className="btn btn-action mx-2 w-50 uppercase"
                 >
-                    UPDATE
+                    update
+                </button>
+                <button
+                    onClick={deleteBoxData}
+                    type="submit"
+                    className="btn btn-action mx-2 w-50 uppercase"
+                >
+                    delete
                 </button>
                 <Link className="w-50" to={"/"}>
-                    <button type="btn" className="btn btn-back mx-2 w-100">
-                        BACK TO BOXES
+                    <button
+                        type="btn"
+                        className="btn btn-back mx-2 w-100 uppercase"
+                    >
+                        back to boxes
                     </button>
                 </Link>
             </div>

@@ -31,7 +31,7 @@ const LinkBoxes = (props) => {
 
     return (
         <div className="container w-50 d-flex flex-column justify-content-center align-items-center my-3">
-            <h1 className="text-center headings">Link Boxes</h1>
+            <h1 className="text-center headings uppercase">Link Boxes</h1>
             <div className="d-flex flex-wrap w-75 justify-content-center">
                 {/* {displayBox()} */}
                 {linkBoxes}

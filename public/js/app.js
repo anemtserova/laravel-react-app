@@ -2189,7 +2189,21 @@ var Box = function Box(props) {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
       _useState2 = _slicedToArray(_useState, 2),
       infoBox = _useState2[0],
-      setInfoBox = _useState2[1];
+      setInfoBox = _useState2[1]; // localStorage.setItem(`box${props.id}`, JSON.stringify(getBox.data));
+  // setInfoBox(getBox.data);
+  //     console.log(infoBox);
+  // const deleteBoxData = async (id) => {
+  //     const delResp = await axios.delete(
+  //         `http://127.0.0.1:8000/api/info/${id}`
+  //     );
+  //     if (delResp === 1) {
+  //         const getBox = await axios.get(
+  //             `http://127.0.0.1:8000/api/info/${id}`
+  //         );
+  //         localStorage.setItem(`box${id}`, JSON.stringify(getBox.data));
+  //     }
+  // };
+
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
@@ -2222,20 +2236,23 @@ var Box = function Box(props) {
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: "d-flex m-0 justify-content-center align-items-center",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link // onClick={getBoxData}
-          , {
-            to: {
-              pathname: "/editinfo/".concat(props.id),
-              state: {
-                boxId: props.id,
-                title: JSON.parse(localStorage.getItem("box".concat(props.id)))["title"],
-                link: JSON.parse(localStorage.getItem("box".concat(props.id)))["link"],
-                color: JSON.parse(localStorage.getItem("box".concat(props.id)))["color"]
-              }
-            },
-            className: "d-flex btn btn-style-sm justify-content-center align-items-center",
-            type: "button",
-            children: "MODIFY"
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            className: "d-flex m-0 mr-1 justify-content-center align-items-center",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link // onClick={getBoxData}
+            , {
+              to: {
+                pathname: "/editinfo/".concat(props.id),
+                state: {
+                  boxId: props.id,
+                  title: JSON.parse(localStorage.getItem("box".concat(props.id)))["title"],
+                  link: JSON.parse(localStorage.getItem("box".concat(props.id)))["link"],
+                  color: JSON.parse(localStorage.getItem("box".concat(props.id)))["color"]
+                }
+              },
+              className: "d-flex btn btn-style-sm justify-content-center align-items-center uppercase",
+              type: "button",
+              children: "modify"
+            })
           })
         })]
       })
@@ -2363,10 +2380,43 @@ var EditForm = function EditForm(props) {
     };
   }();
 
+  var deleteBoxData = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+      var delResp, getBox;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_2___default()["delete"]("http://127.0.0.1:8000/api/info/".concat(location.state["boxId"]));
+
+            case 2:
+              delResp = _context2.sent;
+              _context2.next = 5;
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().get("http://127.0.0.1:8000/api/info/".concat(location.state["boxId"]));
+
+            case 5:
+              getBox = _context2.sent;
+              localStorage.setItem("box".concat(location.state["boxId"]), JSON.stringify(getBox.data));
+              history.push("/");
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function deleteBoxData() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
     className: "d-flex m-auto flex-column align-items-center justify-content-center w-50 mt-5 pt-5",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
-      className: "my-3 headings",
+      className: "my-3 headings uppercase",
       children: "Edit Your Link Info"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "input-group mb-3",
@@ -2442,19 +2492,24 @@ var EditForm = function EditForm(props) {
         })]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      className: "d-flex w-50",
+      className: "d-flex w-50 justify-content-center",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
         onClick: saveEditInput,
         type: "submit",
-        className: "btn btn-action mx-2 w-50",
-        children: "UPDATE"
+        className: "btn btn-action mx-2 w-50 uppercase",
+        children: "update"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+        onClick: deleteBoxData,
+        type: "submit",
+        className: "btn btn-action mx-2 w-50 uppercase",
+        children: "delete"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
         className: "w-50",
         to: "/",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
           type: "btn",
-          className: "btn btn-back mx-2 w-100",
-          children: "BACK TO BOXES"
+          className: "btn btn-back mx-2 w-100 uppercase",
+          children: "back to boxes"
         })
       })]
     })]
@@ -2602,7 +2657,7 @@ var Form = function Form(props) {
 
   var saveInput = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(e) {
-      var res;
+      var res, getRes;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -2616,10 +2671,17 @@ var Form = function Form(props) {
 
               if (res.data.status === 200) {
                 console.log(res.data.message);
-                history.push("/");
               }
 
-            case 5:
+              _context.next = 7;
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().get("http://127.0.0.1:8000/api/info/".concat(formInput.boxId));
+
+            case 7:
+              getRes = _context.sent;
+              localStorage.setItem("box".concat(formInput.boxId), JSON.stringify(getRes.data));
+              history.push("/");
+
+            case 10:
             case "end":
               return _context.stop();
           }
@@ -2635,7 +2697,7 @@ var Form = function Form(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
     className: "d-flex m-auto flex-column align-items-center justify-content-center w-50 mt-5 pt-5",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
-      className: "my-3 headings",
+      className: "my-3 headings uppercase",
       children: "Set up Your Custom Link"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "input-group mb-3",
@@ -2839,7 +2901,7 @@ var LinkBoxes = function LinkBoxes(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
     className: "container w-50 d-flex flex-column justify-content-center align-items-center my-3",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h1", {
-      className: "text-center headings",
+      className: "text-center headings uppercase",
       children: "Link Boxes"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
       className: "d-flex flex-wrap w-75 justify-content-center",
@@ -7318,7 +7380,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".body {\r\n    color: rgb(0, 18, 25);\r\n}\r\n\r\n.headings {\r\n    font-weight: bold;\r\n}\r\n\r\n.box-style {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px orangered;\r\n    border-radius: 10px;\r\n}\r\n.box-style-1 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(174, 32, 18);\r\n    border-radius: 10px;\r\n}\r\n.box-style-2 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(187, 62, 3);\r\n    border-radius: 10px;\r\n}\r\n.box-style-3 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(202, 103, 2);\r\n    border-radius: 10px;\r\n}\r\n.box-style-4 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(238, 155, 0);\r\n    border-radius: 10px;\r\n}\r\n.box-style-5 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(200, 224, 135);\r\n    border-radius: 10px;\r\n}\r\n.box-style-6 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(148, 210, 189);\r\n    border-radius: 10px;\r\n}\r\n.box-style-7 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(10, 147, 150);\r\n    border-radius: 10px;\r\n}\r\n.box-style-8 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(0, 95, 115);\r\n    border-radius: 10px;\r\n}\r\n.box-style-9 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(3, 54, 58);\r\n    border-radius: 10px;\r\n}\r\n\r\n.btn-style-sm {\r\n    border: solid 2px orangered;\r\n    width: 3.5rem;\r\n    height: 1.5rem;\r\n    font-size: 0.7rem;\r\n    font-weight: bold;\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\n\r\n.link-color {\r\n    color: rgb(0, 18, 25);\r\n}\r\n\r\n.label-style {\r\n    background: rgb(200, 224, 135);\r\n    font-weight: bold;\r\n}\r\n\r\n.btn-back {\r\n    background: rgb(200, 224, 135);\r\n    font-weight: bold;\r\n}\r\n\r\n.btn-action {\r\n    background: orangered;\r\n    font-weight: bold;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".body {\r\n    color: rgb(0, 18, 25);\r\n}\r\n\r\n.headings {\r\n    font-weight: bold;\r\n}\r\n\r\n.box-style {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px orangered;\r\n    border-radius: 10px;\r\n}\r\n.box-style-1 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(174, 32, 18);\r\n    border-radius: 10px;\r\n}\r\n.box-style-2 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(187, 62, 3);\r\n    border-radius: 10px;\r\n}\r\n.box-style-3 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(202, 103, 2);\r\n    border-radius: 10px;\r\n}\r\n.box-style-4 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(238, 155, 0);\r\n    border-radius: 10px;\r\n}\r\n.box-style-5 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(200, 224, 135);\r\n    border-radius: 10px;\r\n}\r\n.box-style-6 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(148, 210, 189);\r\n    border-radius: 10px;\r\n}\r\n.box-style-7 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(10, 147, 150);\r\n    border-radius: 10px;\r\n}\r\n.box-style-8 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(0, 95, 115);\r\n    border-radius: 10px;\r\n}\r\n.box-style-9 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(3, 54, 58);\r\n    border-radius: 10px;\r\n}\r\n\r\n.btn-style-sm {\r\n    border: solid 2px orangered;\r\n    width: 3.5rem;\r\n    height: 1.5rem;\r\n    font-size: 0.7rem;\r\n    font-weight: bold;\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\n\r\n.link-color {\r\n    color: rgb(0, 18, 25);\r\n}\r\n\r\n.label-style {\r\n    background: rgb(200, 224, 135);\r\n    font-weight: bold;\r\n}\r\n\r\n.btn-back {\r\n    background: rgb(200, 224, 135);\r\n    font-weight: bold;\r\n}\r\n\r\n.btn-action {\r\n    background: orangered;\r\n    font-weight: bold;\r\n}\r\n\r\n.uppercase {\r\n    text-transform: uppercase;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

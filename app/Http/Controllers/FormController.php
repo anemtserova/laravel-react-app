@@ -109,8 +109,8 @@ class FormController extends Controller
      */
     public function destroy($boxId)
     {       
-        $box_data = Form::where('boxId', $boxId);
-        $box_data->delete();
+        return Form::where('boxId', $boxId)->delete();
+        
     }
     /**
      * 

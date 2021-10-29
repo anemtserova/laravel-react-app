@@ -9,7 +9,7 @@ Route::get('/info', [FormController::class, 'index']);
 Route::get('/info/{id}', [FormController::class, 'findBoxId']);
 Route::put('/editinfo/{id}', [FormController::class, 'update']);
 Route::get('/editinfo/{id}', [FormController::class, 'findBoxId']);
-Route::delete('/info/{id}', [FormController::class, 'destroy']);
+Route::delete('/editinfo/{id}', [FormController::class, 'destroy']);
 
 // Route::resource('info', FormController::class);
 

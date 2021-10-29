@@ -28,13 +28,20 @@ const Form = (props) => {
 
         if (res.data.status === 200) {
             console.log(res.data.message);
-            history.push("/");
         }
+        const getRes = await axios.get(
+            `http://127.0.0.1:8000/api/info/${formInput.boxId}`
+        );
+        localStorage.setItem(
+            `box${formInput.boxId}`,
+            JSON.stringify(getRes.data)
+        );
+        history.push("/");
     };
 
     return (
         <form className="d-flex m-auto flex-column align-items-center justify-content-center w-50 mt-5 pt-5">
-            <h1 className="my-3 headings">Set up Your Custom Link</h1>
+            <h1 className="my-3 headings uppercase">Set up Your Custom Link</h1>
             <div className="input-group mb-3">
                 <label
                     className="input-group-text label-style"
