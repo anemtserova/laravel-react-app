@@ -107,9 +107,10 @@ class FormController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($boxId)
+    {       
+        $box_data = Form::where('boxId', $boxId);
+        $box_data->delete();
     }
     /**
      * 

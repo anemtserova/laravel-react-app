@@ -26,6 +26,7 @@ const EditForm = (props) => {
 
             editFormInput
         );
+
         const editedInfoGet = await axios.get(
             `http://127.0.0.1:8000/api/editinfo/${editFormInput.boxId}`
         );
@@ -36,6 +37,10 @@ const EditForm = (props) => {
         );
 
         history.push("/");
+
+        // const getAllData = await axios.get(
+        //     `http://127.0.0.1:8000/api/info/`
+        // );
     };
 
     return (

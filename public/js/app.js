@@ -2346,7 +2346,9 @@ var EditForm = function EditForm(props) {
             case 6:
               editedInfoGet = _context.sent;
               localStorage.setItem("box".concat(editFormInput.boxId), JSON.stringify(editedInfoGet.data));
-              history.push("/");
+              history.push("/"); // const getAllData = await axios.get(
+              //     `http://127.0.0.1:8000/api/info/`
+              // );
 
             case 9:
             case "end":
