@@ -2208,7 +2208,7 @@ var Box = function Box(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
       className: "d-flex m-2 justify-content-center",
-      children: !JSON.parse(localStorage.getItem("box".concat(props.id))) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      children: !JSON.parse(localStorage.getItem("box".concat(props.id))) && !JSON.parse(localStorage.getItem("box".concat(props.id)))["boxId"] ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         className: "d-flex justify-content-center align-items-center box-style  p-3",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link //onClick={hello}
         , {
@@ -2381,26 +2381,28 @@ var EditForm = function EditForm(props) {
   }();
 
   var deleteBoxData = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-      var delResp, getBox;
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(id) {
+      var delResp;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              _context2.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default()["delete"]("http://127.0.0.1:8000/api/info/".concat(location.state["boxId"]));
+              delResp = axios__WEBPACK_IMPORTED_MODULE_2___default()["delete"]("http://127.0.0.1:8000/api/editinfo/".concat(id)).then(function () {
+                return true;
+              }); // const getBox = await axios.get(
+              //     `http://127.0.0.1:8000/api/editinfo/${id}`
+              // );
 
-            case 2:
-              delResp = _context2.sent;
-              _context2.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().get("http://127.0.0.1:8000/api/info/".concat(location.state["boxId"]));
-
-            case 5:
-              getBox = _context2.sent;
-              localStorage.setItem("box".concat(location.state["boxId"]), JSON.stringify(getBox.data));
+              setEditFormInput({
+                title: "",
+                link: "",
+                color: "",
+                boxId: null
+              });
+              localStorage.setItem("box".concat(id), JSON.stringify(editFormInput));
               history.push("/");
 
-            case 8:
+            case 4:
             case "end":
               return _context2.stop();
           }
@@ -2408,7 +2410,7 @@ var EditForm = function EditForm(props) {
       }, _callee2);
     }));
 
-    return function deleteBoxData() {
+    return function deleteBoxData(_x2) {
       return _ref2.apply(this, arguments);
     };
   }();
@@ -2499,7 +2501,9 @@ var EditForm = function EditForm(props) {
         className: "btn btn-action mx-2 w-50 uppercase",
         children: "update"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-        onClick: deleteBoxData,
+        onClick: function onClick() {
+          return deleteBoxData(editFormInput.boxId);
+        },
         type: "submit",
         className: "btn btn-action mx-2 w-50 uppercase",
         children: "delete"
@@ -2776,7 +2780,7 @@ var Form = function Form(props) {
         })]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      className: "d-flex w-50",
+      className: "d-flex w-50 justify-content-center",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
         onClick: saveInput,
         type: "submit",
@@ -2884,20 +2888,21 @@ var LinkBoxes = function LinkBoxes(props) {
             break;
 
           case 10:
+            console.log("this runs after reload");
             return _context.abrupt("return", true);
 
-          case 13:
-            _context.prev = 13;
+          case 14:
+            _context.prev = 14;
             _context.t0 = _context["catch"](0);
             console.error("There has been an error while loging in.", _context.t0);
 
-          case 16:
+          case 17:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 13]]);
-  })), []);
+    }, _callee, null, [[0, 14]]);
+  })), [localStorage]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
     className: "container w-50 d-flex flex-column justify-content-center align-items-center my-3",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h1", {

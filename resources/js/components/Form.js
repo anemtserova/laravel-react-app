@@ -105,7 +105,7 @@ const Form = (props) => {
                 </select>
             </div>
 
-            <div className="d-flex w-50">
+            <div className="d-flex w-50 justify-content-center">
                 <button
                     onClick={saveInput}
                     type="submit"

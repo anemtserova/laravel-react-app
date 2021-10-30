@@ -30,7 +30,8 @@ const Box = (props) => {
     return (
         <div>
             <div className="d-flex m-2 justify-content-center">
-                {!JSON.parse(localStorage.getItem(`box${props.id}`)) ? (
+                {!JSON.parse(localStorage.getItem(`box${props.id}`)) &&
+                !JSON.parse(localStorage.getItem(`box${props.id}`))["boxId"] ? (
                     <div className="d-flex justify-content-center align-items-center box-style  p-3">
                         <Link
                             //onClick={hello}

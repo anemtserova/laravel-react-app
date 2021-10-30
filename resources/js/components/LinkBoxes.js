@@ -23,11 +23,12 @@ const LinkBoxes = (props) => {
 
                 localStorage.setItem(`box${i}`, JSON.stringify(resp.data));
             }
+            console.log("this runs after reload");
             return true;
         } catch (err) {
             console.error("There has been an error while loging in.", err);
         }
-    }, []);
+    }, [localStorage]);
 
     return (
         <div className="container w-50 d-flex flex-column justify-content-center align-items-center my-3">

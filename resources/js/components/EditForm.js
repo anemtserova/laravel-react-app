@@ -43,19 +43,21 @@ const EditForm = (props) => {
         // );
     };
 
-    const deleteBoxData = async () => {
-        const delResp = await axios.delete(
-            `http://127.0.0.1:8000/api/info/${location.state["boxId"]}`
-        );
+    const deleteBoxData = async (id) => {
+        const delResp = axios
+            .delete(`http://127.0.0.1:8000/api/editinfo/${id}`)
+            .then(() => true);
 
-        const getBox = await axios.get(
-            `http://127.0.0.1:8000/api/info/${location.state["boxId"]}`
-        );
-        localStorage.setItem(
-            `box${location.state["boxId"]}`,
-            JSON.stringify(getBox.data)
-        );
-
+        // const getBox = await axios.get(
+        //     `http://127.0.0.1:8000/api/editinfo/${id}`
+        // );
+        setEditFormInput({
+            title: "",
+            link: "",
+            color: "",
+            boxId: null,
+        });
+        localStorage.setItem(`box${id}`, JSON.stringify(editFormInput));
         history.push("/");
     };
 
@@ -131,7 +133,7 @@ const EditForm = (props) => {
                     update
                 </button>
                 <button
-                    onClick={deleteBoxData}
+                    onClick={() => deleteBoxData(editFormInput.boxId)}
                     type="submit"
                     className="btn btn-action mx-2 w-50 uppercase"
                 >
