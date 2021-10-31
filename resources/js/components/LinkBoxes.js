@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 //import ReactDOM from 'react-dom';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Box from "./Box";
 import Form from "./Form";
 import "../../css/app.css";
@@ -9,6 +9,7 @@ import axios from "axios";
 
 const LinkBoxes = (props) => {
     const linkBoxes = [];
+    const [state, setState] = useState(false);
 
     for (let i = 0; i < 9; i++) {
         linkBoxes.push(<Box key={i} id={i + 1} />);
@@ -23,18 +24,17 @@ const LinkBoxes = (props) => {
 
                 localStorage.setItem(`box${i}`, JSON.stringify(resp.data));
             }
-            console.log("this runs after reload");
+            console.log("this runs after load");
             return true;
         } catch (err) {
             console.error("There has been an error while loging in.", err);
         }
-    }, [localStorage]);
+    }, []);
 
     return (
         <div className="container w-50 d-flex flex-column justify-content-center align-items-center my-3">
             <h1 className="text-center headings uppercase">Link Boxes</h1>
             <div className="d-flex flex-wrap w-75 justify-content-center">
-                {/* {displayBox()} */}
                 {linkBoxes}
             </div>
         </div>

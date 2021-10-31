@@ -2382,27 +2382,31 @@ var EditForm = function EditForm(props) {
 
   var deleteBoxData = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(id) {
-      var delResp;
+      var delResp, getBox;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
+              // e.preventDefault();
               delResp = axios__WEBPACK_IMPORTED_MODULE_2___default()["delete"]("http://127.0.0.1:8000/api/editinfo/".concat(id)).then(function () {
                 return true;
-              }); // const getBox = await axios.get(
-              //     `http://127.0.0.1:8000/api/editinfo/${id}`
-              // );
-
-              setEditFormInput({
-                title: "",
-                link: "",
-                color: "",
-                boxId: null
               });
-              localStorage.setItem("box".concat(id), JSON.stringify(editFormInput));
+              _context2.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().get("http://127.0.0.1:8000/api/editinfo/".concat(id));
+
+            case 3:
+              getBox = _context2.sent;
+              console.log("getBox data", getBox.data); // setEditFormInput({
+              //     title: "",
+              //     link: "",
+              //     color: "",
+              //     boxId: null,
+              // });
+              // localStorage.setItem(`box${id}`, JSON.stringify(editFormInput));
+
               history.push("/");
 
-            case 4:
+            case 6:
             case "end":
               return _context2.stop();
           }
@@ -2415,6 +2419,25 @@ var EditForm = function EditForm(props) {
     };
   }();
 
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+    var resp;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            _context3.next = 2;
+            return axios__WEBPACK_IMPORTED_MODULE_2___default().get("http://127.0.0.1:8000/api/editinfo/".concat(editFormInput.boxId));
+
+          case 2:
+            resp = _context3.sent;
+
+          case 3:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, _callee3);
+  })), []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
     className: "d-flex m-auto flex-column align-items-center justify-content-center w-50 mt-5 pt-5",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
@@ -2423,9 +2446,9 @@ var EditForm = function EditForm(props) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "input-group mb-3",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-        className: "input-group-text label-style",
+        className: "input-group-text upercase label-style",
         id: "basic-addon1",
-        children: "TITLE"
+        children: "Title"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
         onChange: handleInput,
         type: "text",
@@ -2438,9 +2461,9 @@ var EditForm = function EditForm(props) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "input-group mb-3",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-        className: "input-group-text label-style",
+        className: "input-group-text uppercase label-style",
         id: "basic-addon2",
-        children: "LINK"
+        children: "link"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
         type: "text",
         onChange: handleInput,
@@ -2453,9 +2476,9 @@ var EditForm = function EditForm(props) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "input-group mb-3",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-        className: "input-group-text label-style",
+        className: "input-group-text uppercase label-style",
         id: "basic-addon3",
-        children: "COLOR"
+        children: "color"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
         name: "color",
         className: "form-select form-control highlight",
@@ -2498,22 +2521,26 @@ var EditForm = function EditForm(props) {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
         onClick: saveEditInput,
         type: "submit",
-        className: "btn btn-action mx-2 w-50 uppercase",
+        className: "btn btn-action w-50 uppercase",
         children: "update"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-        onClick: function onClick() {
-          return deleteBoxData(editFormInput.boxId);
-        },
-        type: "submit",
-        className: "btn btn-action mx-2 w-50 uppercase",
-        children: "delete"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+        className: "w-50 mx-2",
+        to: "/",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+          onClick: function onClick() {
+            return deleteBoxData(editFormInput.boxId);
+          },
+          type: "submit",
+          className: "btn btn-action w-100 uppercase",
+          children: "delete"
+        })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
         className: "w-50",
         to: "/",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
           type: "btn",
-          className: "btn btn-back mx-2 w-100 uppercase",
-          children: "back to boxes"
+          className: "btn btn-back w-100 uppercase",
+          children: "back"
         })
       })]
     })]
@@ -2661,7 +2688,7 @@ var Form = function Form(props) {
 
   var saveInput = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(e) {
-      var res, getRes;
+      var postRes, getRes;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -2671,10 +2698,10 @@ var Form = function Form(props) {
               return axios__WEBPACK_IMPORTED_MODULE_2___default().post("http://127.0.0.1:8000/api/info/".concat(formInput.boxId), formInput);
 
             case 3:
-              res = _context.sent;
+              postRes = _context.sent;
 
-              if (res.data.status === 200) {
-                console.log(res.data.message);
+              if (postRes.data.status === 200) {
+                console.log(postRes.data.message);
               }
 
               _context.next = 7;
@@ -2698,6 +2725,25 @@ var Form = function Form(props) {
     };
   }();
 
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+    var resp;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.next = 2;
+            return axios__WEBPACK_IMPORTED_MODULE_2___default().get("http://127.0.0.1:8000/api/info/".concat(formInput.boxId));
+
+          case 2:
+            resp = _context2.sent;
+
+          case 3:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  })), []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
     className: "d-flex m-auto flex-column align-items-center justify-content-center w-50 mt-5 pt-5",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
@@ -2839,6 +2885,18 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
  //import ReactDOM from 'react-dom';
 
 
@@ -2853,6 +2911,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var LinkBoxes = function LinkBoxes(props) {
   var linkBoxes = [];
 
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      state = _useState2[0],
+      setState = _useState2[1];
+
   for (var i = 0; i < 9; i++) {
     linkBoxes.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Box__WEBPACK_IMPORTED_MODULE_2__["default"], {
       id: i + 1
@@ -2860,35 +2923,35 @@ var LinkBoxes = function LinkBoxes(props) {
   }
 
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-    var _i, resp;
+    var _i2, resp;
 
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
-            _i = 1;
+            _i2 = 1;
 
           case 2:
-            if (!(_i < 10)) {
+            if (!(_i2 < 10)) {
               _context.next = 10;
               break;
             }
 
             _context.next = 5;
-            return axios__WEBPACK_IMPORTED_MODULE_6___default().get("http://127.0.0.1:8000/api/info/".concat(_i));
+            return axios__WEBPACK_IMPORTED_MODULE_6___default().get("http://127.0.0.1:8000/api/info/".concat(_i2));
 
           case 5:
             resp = _context.sent;
-            localStorage.setItem("box".concat(_i), JSON.stringify(resp.data));
+            localStorage.setItem("box".concat(_i2), JSON.stringify(resp.data));
 
           case 7:
-            _i++;
+            _i2++;
             _context.next = 2;
             break;
 
           case 10:
-            console.log("this runs after reload");
+            console.log("this runs after load");
             return _context.abrupt("return", true);
 
           case 14:
@@ -2902,7 +2965,7 @@ var LinkBoxes = function LinkBoxes(props) {
         }
       }
     }, _callee, null, [[0, 14]]);
-  })), [localStorage]);
+  })), []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
     className: "container w-50 d-flex flex-column justify-content-center align-items-center my-3",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h1", {

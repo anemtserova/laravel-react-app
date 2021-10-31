@@ -44,32 +44,40 @@ const EditForm = (props) => {
     };
 
     const deleteBoxData = async (id) => {
+        // e.preventDefault();
         const delResp = axios
             .delete(`http://127.0.0.1:8000/api/editinfo/${id}`)
             .then(() => true);
 
-        // const getBox = await axios.get(
-        //     `http://127.0.0.1:8000/api/editinfo/${id}`
-        // );
-        setEditFormInput({
-            title: "",
-            link: "",
-            color: "",
-            boxId: null,
-        });
-        localStorage.setItem(`box${id}`, JSON.stringify(editFormInput));
+        const getBox = await axios.get(
+            `http://127.0.0.1:8000/api/editinfo/${id}`
+        );
+        console.log("getBox data", getBox.data);
+        // setEditFormInput({
+        //     title: "",
+        //     link: "",
+        //     color: "",
+        //     boxId: null,
+        // });
+        // localStorage.setItem(`box${id}`, JSON.stringify(editFormInput));
         history.push("/");
     };
+
+    useEffect(async () => {
+        const resp = await axios.get(
+            `http://127.0.0.1:8000/api/editinfo/${editFormInput.boxId}`
+        );
+    }, []);
 
     return (
         <form className="d-flex m-auto flex-column align-items-center justify-content-center w-50 mt-5 pt-5">
             <h1 className="my-3 headings uppercase">Edit Your Link Info</h1>
             <div className="input-group mb-3">
                 <label
-                    className="input-group-text label-style"
+                    className="input-group-text upercase label-style"
                     id="basic-addon1"
                 >
-                    TITLE
+                    Title
                 </label>
                 <input
                     onChange={handleInput}
@@ -83,10 +91,10 @@ const EditForm = (props) => {
             </div>
             <div className="input-group mb-3">
                 <label
-                    className="input-group-text label-style"
+                    className="input-group-text uppercase label-style"
                     id="basic-addon2"
                 >
-                    LINK
+                    link
                 </label>
                 <input
                     type="text"
@@ -100,10 +108,10 @@ const EditForm = (props) => {
             </div>
             <div className="input-group mb-3">
                 <label
-                    className="input-group-text label-style"
+                    className="input-group-text uppercase label-style"
                     id="basic-addon3"
                 >
-                    COLOR
+                    color
                 </label>
                 <select
                     name="color"
@@ -128,23 +136,22 @@ const EditForm = (props) => {
                 <button
                     onClick={saveEditInput}
                     type="submit"
-                    className="btn btn-action mx-2 w-50 uppercase"
+                    className="btn btn-action w-50 uppercase"
                 >
                     update
                 </button>
-                <button
-                    onClick={() => deleteBoxData(editFormInput.boxId)}
-                    type="submit"
-                    className="btn btn-action mx-2 w-50 uppercase"
-                >
-                    delete
-                </button>
-                <Link className="w-50" to={"/"}>
+                <Link className="w-50 mx-2" to={"/"}>
                     <button
-                        type="btn"
-                        className="btn btn-back mx-2 w-100 uppercase"
+                        onClick={() => deleteBoxData(editFormInput.boxId)}
+                        type="submit"
+                        className="btn btn-action w-100 uppercase"
                     >
-                        back to boxes
+                        delete
+                    </button>
+                </Link>
+                <Link className="w-50" to={"/"}>
+                    <button type="btn" className="btn btn-back w-100 uppercase">
+                        back
                     </button>
                 </Link>
             </div>

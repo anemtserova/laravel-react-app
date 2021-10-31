@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 //import ReactDOM from 'react-dom';
 import { Link, useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
@@ -21,13 +21,13 @@ const Form = (props) => {
 
     const saveInput = async (e) => {
         e.preventDefault();
-        const res = await axios.post(
+        const postRes = await axios.post(
             `http://127.0.0.1:8000/api/info/${formInput.boxId}`,
             formInput
         );
 
-        if (res.data.status === 200) {
-            console.log(res.data.message);
+        if (postRes.data.status === 200) {
+            console.log(postRes.data.message);
         }
         const getRes = await axios.get(
             `http://127.0.0.1:8000/api/info/${formInput.boxId}`
@@ -38,6 +38,12 @@ const Form = (props) => {
         );
         history.push("/");
     };
+
+    useEffect(async () => {
+        const resp = await axios.get(
+            `http://127.0.0.1:8000/api/info/${formInput.boxId}`
+        );
+    }, []);
 
     return (
         <form className="d-flex m-auto flex-column align-items-center justify-content-center w-50 mt-5 pt-5">
