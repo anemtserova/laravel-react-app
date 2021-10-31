@@ -6,8 +6,6 @@ import "../../css/app.css";
 import PropTypes from "prop-types";
 
 const Box = (props) => {
-    const [infoBox, setInfoBox] = useState({});
-
     return (
         <div>
             <div className="d-flex m-2 justify-content-center">
@@ -27,13 +25,13 @@ const Box = (props) => {
                 ) : (
                     <div
                         className={`d-flex flex-column justify-content-center align-items-center   p-3 box-style`}
-                        style={{
-                            border: `8px solid ${
-                                JSON.parse(
-                                    localStorage.getItem(`box${props.id}`)
-                                ).color
-                            }`,
-                        }}
+                        // style={{
+                        //     border: `8px solid ${
+                        //         JSON.parse(
+                        //             localStorage.getItem(`box${props.id}`)
+                        //         ).color
+                        //     }`,
+                        // }}
                     >
                         <div className="d-flex justify-content-center align-items-center   m-0">
                             <ExternalLink
