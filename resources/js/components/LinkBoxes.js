@@ -7,7 +7,6 @@ import axios from "axios";
 
 const LinkBoxes = (props) => {
     const linkBoxes = [];
-    const [state, setState] = useState(false);
 
     useEffect(async () => {
         try {

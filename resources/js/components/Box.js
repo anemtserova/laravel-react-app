@@ -28,11 +28,11 @@ const Box = (props) => {
                     <div
                         className={`d-flex flex-column justify-content-center align-items-center   p-3 box-style`}
                         style={{
-                            border: `${
+                            border: `8px solid ${
                                 JSON.parse(
                                     localStorage.getItem(`box${props.id}`)
-                                )["color"]
-                            } 8px solid`,
+                                ).color
+                            } `,
                         }}
                     >
                         <div className="d-flex justify-content-center align-items-center   m-0">
