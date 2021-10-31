@@ -2186,18 +2186,14 @@ var Box = function Box(props) {
           })
         })
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-        className: "d-flex flex-column justify-content-center align-items-center   p-3 box-style" // style={{
-        //     border: `8px solid ${
-        //         JSON.parse(
-        //             localStorage.getItem(`box${props.id}`)
-        //         ).color
-        //     }`,
-        // }}
-        ,
+        className: "d-flex flex-column justify-content-center align-items-center   p-3 box-style",
+        style: {
+          border: "8px solid ".concat(JSON.parse(window.localStorage.getItem("box".concat(props.id))).color)
+        },
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "d-flex justify-content-center align-items-center   m-0",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_external_link__WEBPACK_IMPORTED_MODULE_1__.ExternalLink, {
-            href: "".concat(JSON.parse(localStorage.getItem("box".concat(props.id)))["link"]),
+            href: "".concat(JSON.parse(window.localStorage.getItem("box".concat(props.id)))["link"]),
             className: "btn link-color p-0",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
               className: "far fa-plus-square fa-6x p-0"
@@ -2213,15 +2209,15 @@ var Box = function Box(props) {
                 pathname: "/editinfo/".concat(props.id),
                 state: {
                   boxId: props.id,
-                  title: JSON.parse(localStorage.getItem("box".concat(props.id)))["title"],
-                  link: JSON.parse(localStorage.getItem("box".concat(props.id)))["link"],
-                  color: JSON.parse(localStorage.getItem("box".concat(props.id)))["color"]
+                  title: JSON.parse(window.localStorage.getItem("box".concat(props.id)))["title"],
+                  link: JSON.parse(window.localStorage.getItem("box".concat(props.id)))["link"],
+                  color: JSON.parse(window.localStorage.getItem("box".concat(props.id)))["color"]
                 }
               },
               className: "d-flex btn btn-style-sm justify-content-center align-items-center uppercase",
               type: "button",
               style: {
-                color: "".concat(JSON.parse(localStorage.getItem("box".concat(props.id)))["color"])
+                color: "".concat(JSON.parse(window.localStorage.getItem("box".concat(props.id)))["color"])
               },
               children: "modify"
             })

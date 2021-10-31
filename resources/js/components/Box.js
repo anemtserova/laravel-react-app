@@ -25,19 +25,23 @@ const Box = (props) => {
                 ) : (
                     <div
                         className={`d-flex flex-column justify-content-center align-items-center   p-3 box-style`}
-                        // style={{
-                        //     border: `8px solid ${
-                        //         JSON.parse(
-                        //             localStorage.getItem(`box${props.id}`)
-                        //         ).color
-                        //     }`,
-                        // }}
+                        style={{
+                            border: `8px solid ${
+                                JSON.parse(
+                                    window.localStorage.getItem(
+                                        `box${props.id}`
+                                    )
+                                ).color
+                            }`,
+                        }}
                     >
                         <div className="d-flex justify-content-center align-items-center   m-0">
                             <ExternalLink
                                 href={`${
                                     JSON.parse(
-                                        localStorage.getItem(`box${props.id}`)
+                                        window.localStorage.getItem(
+                                            `box${props.id}`
+                                        )
                                     )["link"]
                                 }`}
                                 className="btn link-color p-0"
@@ -54,17 +58,17 @@ const Box = (props) => {
                                         state: {
                                             boxId: props.id,
                                             title: JSON.parse(
-                                                localStorage.getItem(
+                                                window.localStorage.getItem(
                                                     `box${props.id}`
                                                 )
                                             )["title"],
                                             link: JSON.parse(
-                                                localStorage.getItem(
+                                                window.localStorage.getItem(
                                                     `box${props.id}`
                                                 )
                                             )["link"],
                                             color: JSON.parse(
-                                                localStorage.getItem(
+                                                window.localStorage.getItem(
                                                     `box${props.id}`
                                                 )
                                             )["color"],
@@ -75,7 +79,7 @@ const Box = (props) => {
                                     style={{
                                         color: `${
                                             JSON.parse(
-                                                localStorage.getItem(
+                                                window.localStorage.getItem(
                                                     `box${props.id}`
                                                 )
                                             )["color"]
@@ -85,15 +89,6 @@ const Box = (props) => {
                                     modify
                                 </Link>
                             </div>
-                            {/* <div className="d-flex m-0 justify-content-center align-items-center">
-                                <button
-                                    onClick={() => deleteBoxData(props.id)}
-                                    className="d-flex btn btn-style-sm justify-content-center align-items-center uppercase"
-                                    type="button"
-                                >
-                                    delete
-                                </button>
-                            </div> */}
                         </div>
                     </div>
                 )}
