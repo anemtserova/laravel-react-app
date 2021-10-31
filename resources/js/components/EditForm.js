@@ -52,14 +52,14 @@ const EditForm = (props) => {
         const getBox = await axios.get(
             `http://127.0.0.1:8000/api/editinfo/${id}`
         );
-        console.log("getBox data", getBox.data);
+        //console.log("getBox data", getBox.data);
         // setEditFormInput({
         //     title: "",
         //     link: "",
         //     color: "",
         //     boxId: null,
         // });
-        // localStorage.setItem(`box${id}`, JSON.stringify(editFormInput));
+        //localStorage.setItem(`box${id}`, JSON.stringify(getBox.data));
         history.push("/");
     };
 

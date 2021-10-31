@@ -2208,7 +2208,7 @@ var Box = function Box(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
       className: "d-flex m-2 justify-content-center",
-      children: !JSON.parse(localStorage.getItem("box".concat(props.id))) && !JSON.parse(localStorage.getItem("box".concat(props.id)))["boxId"] ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      children: !JSON.parse(localStorage.getItem("box".concat(props.id))) && JSON.parse(localStorage.getItem("box".concat(props.id))) == "" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         className: "d-flex justify-content-center align-items-center box-style  p-3",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link //onClick={hello}
         , {
@@ -2396,17 +2396,17 @@ var EditForm = function EditForm(props) {
 
             case 3:
               getBox = _context2.sent;
-              console.log("getBox data", getBox.data); // setEditFormInput({
+              //console.log("getBox data", getBox.data);
+              // setEditFormInput({
               //     title: "",
               //     link: "",
               //     color: "",
               //     boxId: null,
               // });
-              // localStorage.setItem(`box${id}`, JSON.stringify(editFormInput));
-
+              //localStorage.setItem(`box${id}`, JSON.stringify(getBox.data));
               history.push("/");
 
-            case 6:
+            case 5:
             case "end":
               return _context2.stop();
           }
