@@ -2205,7 +2205,7 @@ var Box = function Box(props) {
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "d-flex flex-column justify-content-center align-items-center   p-3 box-style",
         style: {
-          border: "8px solid ".concat(JSON.parse(localStorage.getItem("box".concat(props.id))).color, " ")
+          border: "8px solid ".concat(JSON.parse(localStorage.getItem("box".concat(props.id))).color)
         },
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "d-flex justify-content-center align-items-center   m-0",

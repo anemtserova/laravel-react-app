@@ -32,7 +32,7 @@ const Box = (props) => {
                                 JSON.parse(
                                     localStorage.getItem(`box${props.id}`)
                                 ).color
-                            } `,
+                            }`,
                         }}
                     >
                         <div className="d-flex justify-content-center align-items-center   m-0">
