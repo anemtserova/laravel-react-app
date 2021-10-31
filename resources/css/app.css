@@ -12,63 +12,9 @@
     border: solid 8px orangered;
     border-radius: 10px;
 }
-.box-style-1 {
-    width: 9rem;
-    height: 9rem;
-    border: solid 8px rgb(174, 32, 18);
-    border-radius: 10px;
-}
-.box-style-2 {
-    width: 9rem;
-    height: 9rem;
-    border: solid 8px rgb(187, 62, 3);
-    border-radius: 10px;
-}
-.box-style-3 {
-    width: 9rem;
-    height: 9rem;
-    border: solid 8px rgb(202, 103, 2);
-    border-radius: 10px;
-}
-.box-style-4 {
-    width: 9rem;
-    height: 9rem;
-    border: solid 8px rgb(238, 155, 0);
-    border-radius: 10px;
-}
-.box-style-5 {
-    width: 9rem;
-    height: 9rem;
-    border: solid 8px rgb(200, 224, 135);
-    border-radius: 10px;
-}
-.box-style-6 {
-    width: 9rem;
-    height: 9rem;
-    border: solid 8px rgb(148, 210, 189);
-    border-radius: 10px;
-}
-.box-style-7 {
-    width: 9rem;
-    height: 9rem;
-    border: solid 8px rgb(10, 147, 150);
-    border-radius: 10px;
-}
-.box-style-8 {
-    width: 9rem;
-    height: 9rem;
-    border: solid 8px rgb(0, 95, 115);
-    border-radius: 10px;
-}
-.box-style-9 {
-    width: 9rem;
-    height: 9rem;
-    border: solid 8px rgb(3, 54, 58);
-    border-radius: 10px;
-}
 
 .btn-style-sm {
-    border: solid 2px orangered;
+    /* border: solid 2px orangered; */
     width: 3.5rem;
     height: 1.5rem;
     font-size: 0.7rem;

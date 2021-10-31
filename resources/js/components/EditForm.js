@@ -37,10 +37,6 @@ const EditForm = (props) => {
         );
 
         history.push("/");
-
-        // const getAllData = await axios.get(
-        //     `http://127.0.0.1:8000/api/info/`
-        // );
     };
 
     const deleteBoxData = async (id) => {
@@ -52,13 +48,7 @@ const EditForm = (props) => {
         const getBox = await axios.get(
             `http://127.0.0.1:8000/api/editinfo/${id}`
         );
-        //console.log("getBox data", getBox.data);
-        // setEditFormInput({
-        //     title: "",
-        //     link: "",
-        //     color: "",
-        //     boxId: null,
-        // });
+
         localStorage.setItem(`box${id}`, JSON.stringify(getBox.data));
         history.push("/");
     };
@@ -120,15 +110,15 @@ const EditForm = (props) => {
                     onChange={handleInput}
                 >
                     <option value="Pick a color">Pick a color</option>
-                    <option value="Red">Red</option>
+                    <option value="Crimson">Crimson</option>
                     <option value="Fuchsia">Fuchsia</option>
-                    <option value="Lime">Lime</option>
+                    <option value="Yellowgreen">Yellowgreen</option>
                     <option value="Teal">Teal</option>
                     <option value="Tomato">Tomato</option>
-                    <option value="Darkorange">Darkorange</option>
+                    <option value="Dodgerblue">Dodgerblue</option>
                     <option value="Gold">Gold</option>
                     <option value="Olivedrab">Olivedrab</option>
-                    <option value="Darkslateblue">Darkslateblue</option>
+                    <option value="Darkslategray">Darkslategray</option>
                 </select>
             </div>
 

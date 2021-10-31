@@ -2152,16 +2152,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var react_external_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-external-link */ "./node_modules/react-external-link/dist/index.esm.js");
 /* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../css/app.css */ "./resources/css/app.css");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -2183,31 +2179,18 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
-
 var Box = function Box(props) {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
       _useState2 = _slicedToArray(_useState, 2),
       infoBox = _useState2[0],
-      setInfoBox = _useState2[1]; // const deleteBoxData = async (id) => {
-  //     const delResp = await axios.delete(
-  //         `http://127.0.0.1:8000/api/info/${id}`
-  //     );
-  //     if (delResp === 1) {
-  //         const getBox = await axios.get(
-  //             `http://127.0.0.1:8000/api/info/${id}`
-  //         );
-  //         localStorage.setItem(`box${id}`, JSON.stringify(getBox.data));
-  //     }
-  // };
+      setInfoBox = _useState2[1];
 
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "d-flex m-2 justify-content-center",
-      children: !JSON.parse(localStorage.getItem("box".concat(props.id))) && JSON.parse(localStorage.getItem("box".concat(props.id))) == "" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      children: !JSON.parse(localStorage.getItem("box".concat(props.id))) && JSON.parse(localStorage.getItem("box".concat(props.id))) == "" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "d-flex justify-content-center align-items-center box-style  p-3",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
           to: {
             pathname: "/info/".concat(props.id),
             state: {
@@ -2215,32 +2198,29 @@ var Box = function Box(props) {
             }
           },
           className: "btn link-color",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("i", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
             className: "far fa-plus-square fa-6x"
           })
         })
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-        className: "d-flex flex-column justify-content-center align-items-center   p-3 ",
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "d-flex flex-column justify-content-center align-items-center   p-3 box-style",
         style: {
-          border: "".concat(JSON.parse(localStorage.getItem("box".concat(props.id)))["color"], " 8px solid"),
-          borderRadius: "10px",
-          width: "9rem",
-          height: "9rem"
+          border: "".concat(JSON.parse(localStorage.getItem("box".concat(props.id)))["color"], " 8px solid")
         },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "d-flex justify-content-center align-items-center   m-0",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_external_link__WEBPACK_IMPORTED_MODULE_1__.ExternalLink, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_external_link__WEBPACK_IMPORTED_MODULE_1__.ExternalLink, {
             href: "".concat(JSON.parse(localStorage.getItem("box".concat(props.id)))["link"]),
             className: "btn link-color p-0",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("i", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
               className: "far fa-plus-square fa-6x p-0"
             })
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "d-flex m-0 justify-content-center align-items-center",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: "d-flex m-0 mr-1 justify-content-center align-items-center",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link // onClick={getBoxData}
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link // onClick={getBoxData}
             , {
               to: {
                 pathname: "/editinfo/".concat(props.id),
@@ -2253,6 +2233,9 @@ var Box = function Box(props) {
               },
               className: "d-flex btn btn-style-sm justify-content-center align-items-center uppercase",
               type: "button",
+              style: {
+                color: "".concat(JSON.parse(localStorage.getItem("box".concat(props.id)))["color"])
+              },
               children: "modify"
             })
           })
@@ -2265,7 +2248,7 @@ var Box = function Box(props) {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Box);
 
 if (document.getElementById("link-box")) {
-  ReactDOM.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(Box, {}), document.getElementById("link-box"));
+  ReactDOM.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Box, {}), document.getElementById("link-box"));
 }
 
 Box.propTypes = {
@@ -2365,9 +2348,7 @@ var EditForm = function EditForm(props) {
             case 6:
               editedInfoGet = _context.sent;
               localStorage.setItem("box".concat(editFormInput.boxId), JSON.stringify(editedInfoGet.data));
-              history.push("/"); // const getAllData = await axios.get(
-              //     `http://127.0.0.1:8000/api/info/`
-              // );
+              history.push("/");
 
             case 9:
             case "end":
@@ -2398,13 +2379,6 @@ var EditForm = function EditForm(props) {
 
             case 3:
               getBox = _context2.sent;
-              //console.log("getBox data", getBox.data);
-              // setEditFormInput({
-              //     title: "",
-              //     link: "",
-              //     color: "",
-              //     boxId: null,
-              // });
               localStorage.setItem("box".concat(id), JSON.stringify(getBox.data));
               history.push("/");
 
@@ -2490,14 +2464,14 @@ var EditForm = function EditForm(props) {
           value: "Pick a color",
           children: "Pick a color"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-          value: "Red",
-          children: "Red"
+          value: "Crimson",
+          children: "Crimson"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
           value: "Fuchsia",
           children: "Fuchsia"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-          value: "Lime",
-          children: "Lime"
+          value: "Yellowgreen",
+          children: "Yellowgreen"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
           value: "Teal",
           children: "Teal"
@@ -2505,8 +2479,8 @@ var EditForm = function EditForm(props) {
           value: "Tomato",
           children: "Tomato"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-          value: "Darkorange",
-          children: "Darkorange"
+          value: "Dodgerblue",
+          children: "Dodgerblue"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
           value: "Gold",
           children: "Gold"
@@ -2514,8 +2488,8 @@ var EditForm = function EditForm(props) {
           value: "Olivedrab",
           children: "Olivedrab"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-          value: "Darkslateblue",
-          children: "Darkslateblue"
+          value: "Darkslategray",
+          children: "Darkslategray"
         })]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -2799,14 +2773,14 @@ var Form = function Form(props) {
           value: "Pick a color",
           children: "Pick a color"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-          value: "Red",
-          children: "Red"
+          value: "Crimson",
+          children: "Crimson"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
           value: "Fuchsia",
           children: "Fuchsia"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-          value: "Lime",
-          children: "Lime"
+          value: "Yellowgreen",
+          children: "Yellowgreen"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
           value: "Teal",
           children: "Teal"
@@ -2814,8 +2788,8 @@ var Form = function Form(props) {
           value: "Tomato",
           children: "Tomato"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-          value: "Darkorange",
-          children: "Darkorange"
+          value: "Dodgerblue",
+          children: "Dodgerblue"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
           value: "Gold",
           children: "Gold"
@@ -2823,8 +2797,8 @@ var Form = function Form(props) {
           value: "Olivedrab",
           children: "Olivedrab"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-          value: "Darkslateblue",
-          children: "Darkslateblue"
+          value: "Darkslategray",
+          children: "Darkslategray"
         })]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -2874,13 +2848,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _Box__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Box */ "./resources/js/components/Box.js");
-/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Form */ "./resources/js/components/Form.js");
-/* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../css/app.css */ "./resources/css/app.css");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../css/app.css */ "./resources/css/app.css");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2900,8 +2873,6 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
  //import ReactDOM from 'react-dom';
-
-
 
 
 
@@ -2934,7 +2905,7 @@ var LinkBoxes = function LinkBoxes(props) {
             }
 
             _context.next = 5;
-            return axios__WEBPACK_IMPORTED_MODULE_6___default().get("http://127.0.0.1:8000/api/info/".concat(i));
+            return axios__WEBPACK_IMPORTED_MODULE_5___default().get("http://127.0.0.1:8000/api/info/".concat(i));
 
           case 5:
             resp = _context.sent;
@@ -2963,17 +2934,17 @@ var LinkBoxes = function LinkBoxes(props) {
   })), []);
 
   for (var i = 0; i < 9; i++) {
-    linkBoxes.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Box__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    linkBoxes.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Box__WEBPACK_IMPORTED_MODULE_2__["default"], {
       id: i + 1
     }, i));
   }
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     className: "container w-50 d-flex flex-column justify-content-center align-items-center my-3",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h1", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
       className: "text-center headings uppercase",
       children: "Link Boxes"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
       className: "d-flex flex-wrap w-75 justify-content-center",
       children: linkBoxes
     })]
@@ -2983,11 +2954,11 @@ var LinkBoxes = function LinkBoxes(props) {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LinkBoxes);
 
 if (document.getElementById("link-boxes")) {
-  ReactDOM.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(LinkBoxes, {}), document.getElementById("link-boxes"));
+  ReactDOM.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(LinkBoxes, {}), document.getElementById("link-boxes"));
 }
 
 LinkBoxes.propTypes = {
-  id: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().number)
+  id: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().number)
 };
 
 /***/ }),
@@ -7450,7 +7421,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".body {\r\n    color: rgb(0, 18, 25);\r\n}\r\n\r\n.headings {\r\n    font-weight: bold;\r\n}\r\n\r\n.box-style {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px orangered;\r\n    border-radius: 10px;\r\n}\r\n.box-style-1 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(174, 32, 18);\r\n    border-radius: 10px;\r\n}\r\n.box-style-2 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(187, 62, 3);\r\n    border-radius: 10px;\r\n}\r\n.box-style-3 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(202, 103, 2);\r\n    border-radius: 10px;\r\n}\r\n.box-style-4 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(238, 155, 0);\r\n    border-radius: 10px;\r\n}\r\n.box-style-5 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(200, 224, 135);\r\n    border-radius: 10px;\r\n}\r\n.box-style-6 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(148, 210, 189);\r\n    border-radius: 10px;\r\n}\r\n.box-style-7 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(10, 147, 150);\r\n    border-radius: 10px;\r\n}\r\n.box-style-8 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(0, 95, 115);\r\n    border-radius: 10px;\r\n}\r\n.box-style-9 {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px rgb(3, 54, 58);\r\n    border-radius: 10px;\r\n}\r\n\r\n.btn-style-sm {\r\n    border: solid 2px orangered;\r\n    width: 3.5rem;\r\n    height: 1.5rem;\r\n    font-size: 0.7rem;\r\n    font-weight: bold;\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\n\r\n.link-color {\r\n    color: rgb(0, 18, 25);\r\n}\r\n\r\n.label-style {\r\n    background: rgb(200, 224, 135);\r\n    font-weight: bold;\r\n}\r\n\r\n.btn-back {\r\n    background: rgb(200, 224, 135);\r\n    font-weight: bold;\r\n}\r\n\r\n.btn-action {\r\n    background: orangered;\r\n    font-weight: bold;\r\n}\r\n\r\n.uppercase {\r\n    text-transform: uppercase;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".body {\r\n    color: rgb(0, 18, 25);\r\n}\r\n\r\n.headings {\r\n    font-weight: bold;\r\n}\r\n\r\n.box-style {\r\n    width: 9rem;\r\n    height: 9rem;\r\n    border: solid 8px orangered;\r\n    border-radius: 10px;\r\n}\r\n\r\n.btn-style-sm {\r\n    /* border: solid 2px orangered; */\r\n    width: 3.5rem;\r\n    height: 1.5rem;\r\n    font-size: 0.7rem;\r\n    font-weight: bold;\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\n\r\n.link-color {\r\n    color: rgb(0, 18, 25);\r\n}\r\n\r\n.label-style {\r\n    background: rgb(200, 224, 135);\r\n    font-weight: bold;\r\n}\r\n\r\n.btn-back {\r\n    background: rgb(200, 224, 135);\r\n    font-weight: bold;\r\n}\r\n\r\n.btn-action {\r\n    background: orangered;\r\n    font-weight: bold;\r\n}\r\n\r\n.uppercase {\r\n    text-transform: uppercase;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

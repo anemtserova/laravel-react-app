@@ -1,26 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 //import ReactDOM from 'react-dom';
-import { Link, useLocation, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ExternalLink } from "react-external-link";
 import "../../css/app.css";
 import PropTypes from "prop-types";
-import axios from "axios";
-import { get } from "jquery";
 
 const Box = (props) => {
     const [infoBox, setInfoBox] = useState({});
-
-    // const deleteBoxData = async (id) => {
-    //     const delResp = await axios.delete(
-    //         `http://127.0.0.1:8000/api/info/${id}`
-    //     );
-    //     if (delResp === 1) {
-    //         const getBox = await axios.get(
-    //             `http://127.0.0.1:8000/api/info/${id}`
-    //         );
-    //         localStorage.setItem(`box${id}`, JSON.stringify(getBox.data));
-    //     }
-    // };
 
     return (
         <div>
@@ -40,16 +26,13 @@ const Box = (props) => {
                     </div>
                 ) : (
                     <div
-                        className={`d-flex flex-column justify-content-center align-items-center   p-3 `}
+                        className={`d-flex flex-column justify-content-center align-items-center   p-3 box-style`}
                         style={{
                             border: `${
                                 JSON.parse(
                                     localStorage.getItem(`box${props.id}`)
                                 )["color"]
                             } 8px solid`,
-                            borderRadius: "10px",
-                            width: "9rem",
-                            height: "9rem",
                         }}
                     >
                         <div className="d-flex justify-content-center align-items-center   m-0">
@@ -91,6 +74,15 @@ const Box = (props) => {
                                     }}
                                     className="d-flex btn btn-style-sm justify-content-center align-items-center uppercase"
                                     type="button"
+                                    style={{
+                                        color: `${
+                                            JSON.parse(
+                                                localStorage.getItem(
+                                                    `box${props.id}`
+                                                )
+                                            )["color"]
+                                        }`,
+                                    }}
                                 >
                                     modify
                                 </Link>
