@@ -15,7 +15,10 @@ const LinkBoxes = (props) => {
                     `http://127.0.0.1:8000/api/info/${i}`
                 );
 
-                localStorage.setItem(`box${i}`, JSON.stringify(resp.data));
+                window.localStorage.setItem(
+                    `box${i}`,
+                    JSON.stringify(resp.data)
+                );
             }
             console.log("this runs after load");
             return true;

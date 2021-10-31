@@ -2874,7 +2874,7 @@ var LinkBoxes = function LinkBoxes(props) {
 
           case 5:
             resp = _context.sent;
-            localStorage.setItem("box".concat(i), JSON.stringify(resp.data));
+            window.localStorage.setItem("box".concat(i), JSON.stringify(resp.data));
 
           case 7:
             i++;
