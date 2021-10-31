@@ -99,15 +99,15 @@ const Form = (props) => {
                     onChange={handleInput}
                 >
                     <option value="Pick a color">Pick a color</option>
-                    <option value="Red">Rufus</option>
-                    <option value="Mahogany">Mahogany</option>
-                    <option value="Alloy Orange">Alloy Orange</option>
-                    <option value="Gamboge">Gamboge</option>
-                    <option value="Yellow">Yellow Green Crayola</option>
-                    <option value="Middle Blue Green">Middle Blue Green</option>
-                    <option value="Viridian Green">Viridian Green</option>
-                    <option value="Blue Sapphire">Blue Sapphire</option>
-                    <option value="Rich Black">Rich Black</option>
+                    <option value="Red">Red</option>
+                    <option value="Fuchsia">Fuchsia</option>
+                    <option value="Lime">Lime</option>
+                    <option value="Teal">Teal</option>
+                    <option value="Tomato">Tomato</option>
+                    <option value="Darkorange">Darkorange</option>
+                    <option value="Gold">Gold</option>
+                    <option value="Olivedrab">Olivedrab</option>
+                    <option value="Darkslateblue">Darkslateblue</option>
                 </select>
             </div>
 

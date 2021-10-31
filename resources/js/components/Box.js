@@ -10,11 +10,6 @@ import { get } from "jquery";
 const Box = (props) => {
     const [infoBox, setInfoBox] = useState({});
 
-    // localStorage.setItem(`box${props.id}`, JSON.stringify(getBox.data));
-
-    // setInfoBox(getBox.data);
-    //     console.log(infoBox);
-
     // const deleteBoxData = async (id) => {
     //     const delResp = await axios.delete(
     //         `http://127.0.0.1:8000/api/info/${id}`
@@ -34,7 +29,6 @@ const Box = (props) => {
                 JSON.parse(localStorage.getItem(`box${props.id}`)) == "" ? (
                     <div className="d-flex justify-content-center align-items-center box-style  p-3">
                         <Link
-                            //onClick={hello}
                             to={{
                                 pathname: `/info/${props.id}`,
                                 state: { boxId: props.id },
@@ -46,7 +40,17 @@ const Box = (props) => {
                     </div>
                 ) : (
                     <div
-                        className={`d-flex flex-column justify-content-center align-items-center box-style-${props.id}  p-3 `}
+                        className={`d-flex flex-column justify-content-center align-items-center   p-3 `}
+                        style={{
+                            border: `${
+                                JSON.parse(
+                                    localStorage.getItem(`box${props.id}`)
+                                )["color"]
+                            } 8px solid`,
+                            borderRadius: "10px",
+                            width: "9rem",
+                            height: "9rem",
+                        }}
                     >
                         <div className="d-flex justify-content-center align-items-center   m-0">
                             <ExternalLink

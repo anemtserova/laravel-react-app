@@ -11,10 +11,6 @@ const LinkBoxes = (props) => {
     const linkBoxes = [];
     const [state, setState] = useState(false);
 
-    for (let i = 0; i < 9; i++) {
-        linkBoxes.push(<Box key={i} id={i + 1} />);
-    }
-
     useEffect(async () => {
         try {
             for (let i = 1; i < 10; i++) {
@@ -30,6 +26,10 @@ const LinkBoxes = (props) => {
             console.error("There has been an error while loging in.", err);
         }
     }, []);
+
+    for (let i = 0; i < 9; i++) {
+        linkBoxes.push(<Box key={i} id={i + 1} />);
+    }
 
     return (
         <div className="container w-50 d-flex flex-column justify-content-center align-items-center my-3">
