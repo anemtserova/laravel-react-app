@@ -28,10 +28,8 @@ const Box = (props) => {
                         style={{
                             border: `8px solid ${
                                 JSON.parse(
-                                    window.localStorage.getItem(
-                                        `box${props.id}`
-                                    )
-                                ).color
+                                    localStorage.getItem(`box${props.id}`)
+                                )["color"]
                             }`,
                         }}
                     >
@@ -39,9 +37,7 @@ const Box = (props) => {
                             <ExternalLink
                                 href={`${
                                     JSON.parse(
-                                        window.localStorage.getItem(
-                                            `box${props.id}`
-                                        )
+                                        localStorage.getItem(`box${props.id}`)
                                     )["link"]
                                 }`}
                                 className="btn link-color p-0"
@@ -58,7 +54,7 @@ const Box = (props) => {
                                         state: {
                                             boxId: props.id,
                                             title: JSON.parse(
-                                                window.localStorage.getItem(
+                                                localStorage.getItem(
                                                     `box${props.id}`
                                                 )
                                             )["title"],
@@ -68,7 +64,7 @@ const Box = (props) => {
                                                 )
                                             )["link"],
                                             color: JSON.parse(
-                                                window.localStorage.getItem(
+                                                localStorage.getItem(
                                                     `box${props.id}`
                                                 )
                                             )["color"],
@@ -79,7 +75,7 @@ const Box = (props) => {
                                     style={{
                                         color: `${
                                             JSON.parse(
-                                                window.localStorage.getItem(
+                                                localStorage.getItem(
                                                     `box${props.id}`
                                                 )
                                             )["color"]

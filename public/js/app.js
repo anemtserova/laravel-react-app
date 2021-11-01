@@ -2188,12 +2188,12 @@ var Box = function Box(props) {
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "d-flex flex-column justify-content-center align-items-center   p-3 box-style",
         style: {
-          border: "8px solid ".concat(JSON.parse(window.localStorage.getItem("box".concat(props.id))).color)
+          border: "8px solid ".concat(JSON.parse(localStorage.getItem("box".concat(props.id)))["color"])
         },
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "d-flex justify-content-center align-items-center   m-0",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_external_link__WEBPACK_IMPORTED_MODULE_1__.ExternalLink, {
-            href: "".concat(JSON.parse(window.localStorage.getItem("box".concat(props.id)))["link"]),
+            href: "".concat(JSON.parse(localStorage.getItem("box".concat(props.id)))["link"]),
             className: "btn link-color p-0",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
               className: "far fa-plus-square fa-6x p-0"
@@ -2209,15 +2209,15 @@ var Box = function Box(props) {
                 pathname: "/editinfo/".concat(props.id),
                 state: {
                   boxId: props.id,
-                  title: JSON.parse(window.localStorage.getItem("box".concat(props.id)))["title"],
+                  title: JSON.parse(localStorage.getItem("box".concat(props.id)))["title"],
                   link: JSON.parse(window.localStorage.getItem("box".concat(props.id)))["link"],
-                  color: JSON.parse(window.localStorage.getItem("box".concat(props.id)))["color"]
+                  color: JSON.parse(localStorage.getItem("box".concat(props.id)))["color"]
                 }
               },
               className: "d-flex btn btn-style-sm justify-content-center align-items-center uppercase",
               type: "button",
               style: {
-                color: "".concat(JSON.parse(window.localStorage.getItem("box".concat(props.id)))["color"])
+                color: "".concat(JSON.parse(localStorage.getItem("box".concat(props.id)))["color"])
               },
               children: "modify"
             })
@@ -2851,52 +2851,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+"use strict";
 
 var LinkBoxes = function LinkBoxes(props) {
   var linkBoxes = [];
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-    var i, resp;
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            _context.prev = 0;
-            i = 1;
-
-          case 2:
-            if (!(i < 10)) {
-              _context.next = 10;
-              break;
-            }
-
-            _context.next = 5;
-            return axios__WEBPACK_IMPORTED_MODULE_5___default().get("http://127.0.0.1:8000/api/info/".concat(i));
-
-          case 5:
-            resp = _context.sent;
-            window.localStorage.setItem("box".concat(i), JSON.stringify(resp.data));
-
-          case 7:
-            i++;
-            _context.next = 2;
-            break;
-
-          case 10:
-            console.log("this runs after load");
-            return _context.abrupt("return", true);
-
-          case 14:
-            _context.prev = 14;
-            _context.t0 = _context["catch"](0);
-            console.error("There has been an error while loging in.", _context.t0);
-
-          case 17:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee, null, [[0, 14]]);
-  })), []);
 
   for (var i = 0; i < 9; i++) {
     linkBoxes.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Box__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -2904,6 +2862,51 @@ var LinkBoxes = function LinkBoxes(props) {
     }, i));
   }
 
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+    var _i, resp;
+
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.prev = 0;
+            _i = 1;
+
+          case 2:
+            if (!(_i < 10)) {
+              _context.next = 11;
+              break;
+            }
+
+            _context.next = 5;
+            return axios__WEBPACK_IMPORTED_MODULE_5___default().get("http://127.0.0.1:8000/api/info/".concat(_i));
+
+          case 5:
+            resp = _context.sent;
+            console.log("useEffect resp", resp.data);
+            localStorage.setItem("box".concat(_i), JSON.stringify(resp.data));
+
+          case 8:
+            _i++;
+            _context.next = 2;
+            break;
+
+          case 11:
+            console.log("this runs after load");
+            return _context.abrupt("return", true);
+
+          case 15:
+            _context.prev = 15;
+            _context.t0 = _context["catch"](0);
+            console.error("There has been an error while loging in.", _context.t0);
+
+          case 18:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, null, [[0, 15]]);
+  })), []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     className: "container w-50 d-flex flex-column justify-content-center align-items-center my-3",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {

@@ -5,8 +5,13 @@ import "../../css/app.css";
 import PropTypes from "prop-types";
 import axios from "axios";
 
+("use strict");
 const LinkBoxes = (props) => {
     const linkBoxes = [];
+
+    for (let i = 0; i < 9; i++) {
+        linkBoxes.push(<Box key={i} id={i + 1} />);
+    }
 
     useEffect(async () => {
         try {
@@ -14,11 +19,9 @@ const LinkBoxes = (props) => {
                 const resp = await axios.get(
                     `http://127.0.0.1:8000/api/info/${i}`
                 );
+                console.log("useEffect resp", resp.data);
 
-                window.localStorage.setItem(
-                    `box${i}`,
-                    JSON.stringify(resp.data)
-                );
+                localStorage.setItem(`box${i}`, JSON.stringify(resp.data));
             }
             console.log("this runs after load");
             return true;
@@ -26,10 +29,6 @@ const LinkBoxes = (props) => {
             console.error("There has been an error while loging in.", err);
         }
     }, []);
-
-    for (let i = 0; i < 9; i++) {
-        linkBoxes.push(<Box key={i} id={i + 1} />);
-    }
 
     return (
         <div className="container w-50 d-flex flex-column justify-content-center align-items-center my-3">
